@@ -1,0 +1,182 @@
+@startuml
+class Administrator [[java:domain.Administrator]] {
+	-{static} serialVersionUID: long
+	#Administrator()
+	+Administrator(gebruikerDTO: GebruikerDTO)
+}
+class Gebruiker {
+}
+Gebruiker <|-- Administrator
+abstract class Gebruiker [[java:domain.Gebruiker]] {
+	-{static} serialVersionUID: long
+	-rol: GebruikerRolEnum
+	-id: int
+	-gebruikersnaam: String
+	-wachtwoord: String
+	+Gebruiker(naam: String, wachtwoord: String, rol: GebruikerRolEnum, email: String)
+	-setEmail(email: String): void
+	-setRol(rol: GebruikerRolEnum): void
+	+Gebruiker(gebruiker: GebruikerDTO)
+	#Gebruiker()
+	+getGebruikersnaam(): String
+	+getWachtwoord(): String
+	+getEmail(): String
+	-setGebruikersnaam(username: String): void
+	-setWachtwoord(password: String): void
+	+getRol(): GebruikerRolEnum
+}
+interface Serializable {
+}
+Serializable <|.. Gebruiker
+class Klant [[java:domain.Klant]] {
+	-{static} serialVersionUID: long
+	-bedrijf: B2BBedrijf
+	#Klant()
+	+Klant(gebruiker: GebruikerDTO, bedrijf: B2BBedrijf)
+}
+class Gebruiker {
+}
+Gebruiker <|-- Klant
+class Leverancier [[java:domain.Leverancier]] {
+	-{static} serialVersionUID: long
+	-bestellingen: List<B2BBestelling>
+	-huidigeBestelling: B2BBestelling
+	-id: int
+	-bedrijf: B2BBedrijf
+	-bestellingRepo: BestellingDao
+	-bedrijfRepo: BedrijfDao
+	#Leverancier()
+	+Leverancier(gebruiker: GebruikerDTO, bedrijf: B2BBedrijf)
+	+getAlleBestellingen(): List<Bestelling>
+	+getBestelling(orderId: int): B2BBestelling
+	+setHuidigeBestelling(huidigeBestelling: Bestelling): void
+	+getHuidigeBestelling(): Bestelling
+	+wijzigBestelling(orderstatus: BestellingStatusEnum, betaalstatus: boolean): void
+	+getId(): int
+	+getAlleKlanten(): List<Bedrijf>
+	+getKlantById(klantId: int): Bedrijf
+	+getOpenstaandeBestellingen(): int
+	+getBeschikbareProducten(): List<Product>
+}
+class Gebruiker {
+}
+Gebruiker <|-- Leverancier
+interface Serializable {
+}
+Serializable <|.. Leverancier
+
+class B2BBedrijf [[java:domain.B2BBedrijf]] {
+	-{static} serialVersionUID: long
+	-bedrijfId: int
+	-naam: SimpleStringProperty
+	-email: SimpleStringProperty
+	-telefoonnummer: SimpleStringProperty
+	-isActief: SimpleBooleanProperty
+	-kortAdresProperty: SimpleStringProperty
+	-aantalOpenstaandeBestellingen: SimpleIntegerProperty
+	-adres: Adres
+	-websiteURL: String
+	-sector: SimpleObjectProperty<BedrijfSectorEnum>
+	-bestellingRepo: BestellingDao
+	-klantAccount: Klant
+	-leverancierAccount: Leverancier
+	+B2BBedrijf(naam: String, email: String, telefoonnummer: String, adres: Adres, websiteURL: String, sector: String)
+	-setWebsiteURL(websiteURL: String): void
+	#B2BBedrijf()
+	+B2BBedrijf(bedrijfDTO: B2BBedrijfDTO, adres: Adres)
+	+setNaam(naam: String): void
+	-setEmail(email: String): void
+	-setTelefoonnummer(telnr: String): void
+	-setAdres(adres: Adres): void
+	+setIsActief(isActief: boolean): void
+	-setSector(sector: String): void
+	-setKortAdresPropery(adres: String): void
+	-setAantalOpenstaandeBestellingen(aantal: int): void
+	+getIsActief(): boolean
+	+getId(): long
+	+getNaam(): String
+	+getEmail(): String
+	+getTelefoonnummer(): String
+	+getAdres(): AdresInterface
+	+naamProperty(): SimpleStringProperty
+	+emailProperty(): SimpleStringProperty
+	+telefoonnummerProperty(): SimpleStringProperty
+	+kortAdresProperty(): SimpleStringProperty
+	+getAdresProperty(): SimpleStringProperty
+	+isInSearch(query: String): boolean
+	+isInFilter(filter: B2BBedrijfDTO): boolean
+	+getBestellingen(): List<Bestelling>
+	+getAantalKlanten(): int
+	+isActiefProperty(): SimpleBooleanProperty
+	+getSector(): BedrijfSectorEnum
+	+getWebsiteURL(): String
+	+wijzigSector(sector: String): void
+	+wijzigIsActief(): void
+	+maakAccounts(): void
+	+aantalOpenstaandeBestellingenProperty(): SimpleIntegerProperty
+	+sectorProperty(): SimpleObjectProperty<BedrijfSectorEnum>
+	+adresProperty(): SimpleStringProperty
+	+getKortAdres(): SimpleStringProperty
+}
+interface Bedrijf {
+}
+Bedrijf <|.. B2BBedrijf
+interface Serializable {
+}
+Serializable <|.. B2BBedrijf
+
+class B2BBestelling [[java:domain.B2BBestelling]] {
+	-{static} serialVersionUID: long
+	-bestellingId: int
+	-leverancier: Leverancier
+	-klant: B2BBedrijf
+	-leveradres: Adres
+	-producten: List<ProductInBestelling>
+	-betalingsHerinneringen: Deque<BetalingsHerinnering>
+	-bestellingDatum: SimpleObjectProperty<LocalDateTime>
+	-bedrag: SimpleObjectProperty<BigDecimal>
+	-bestellingStatus: SimpleObjectProperty<BestellingStatusEnum>
+	-isBetaald: SimpleBooleanProperty
+	-{static} VERZENDKOST: BigDecimal
+	-bestellingRepo: BestellingDao
+	#B2BBestelling()
+	+B2BBestelling(klant: B2BBedrijf, leveradres: Adres, producten: List<ProductInBestelling>, leverancier: Leverancier)
+	-setBestellingStatus(status: BestellingStatusEnum): void
+	-setBestellingDatum(datum: LocalDateTime): void
+	-setProducten(producten: List<ProductInBestelling>): void
+	-setLeveradres(leveradres: Adres): void
+	-setKlant(klant: B2BBedrijf): void
+	-setLeverancier(leverancier: Leverancier): void
+	-setBedrag(value: BigDecimal): void
+	-setIsBetaald(value: boolean): void
+	+getKlant(): Bedrijf
+	+getLeveradres(): Adres
+	+getTotaalBestellingbedrag(): BigDecimal
+	+getDatumLaatstBetalingsHerinnering(): LocalDateTime
+	+getId(): int
+	+getBestellingDatum(): LocalDateTime
+	+getBestellingStatus(): BestellingStatusEnum
+	+getIsBetaald(): boolean
+	+getProductenInBestelling(): List<ProductInBestellingInterface>
+	+stuurBetalingsHerinnering(): void
+	+wijzigBestelling(bestellingStatus: BestellingStatusEnum, isBetaald: boolean): void
+	+wijzigBetalingsStatus(isBetaald: boolean): void
+	+wijzigBestellingStatus(orderStatus: BestellingStatusEnum): void
+	+isInFilter(filter: BestellingFilterDTO): boolean
+	+isInSearch(query: String): boolean
+	+getDatumLaatsteBetalingsHerinnering(): Date
+	+idProperty(): SimpleIntegerProperty
+	+datumProperty(): SimpleObjectProperty<LocalDateTime>
+	+totaalBedragProperty(): SimpleObjectProperty<BigDecimal>
+	+isBetaaldProperty(): SimpleBooleanProperty
+	+statusProperty(): SimpleObjectProperty<BestellingStatusEnum>
+	+klantNaamProperty(): SimpleStringProperty
+	+betaal(): void
+}
+interface Bestelling {
+}
+Bestelling <|.. B2BBestelling
+interface Serializable {
+}
+Serializable <|.. B2BBestelling
+@enduml

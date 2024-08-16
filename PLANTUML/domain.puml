@@ -1,0 +1,290 @@
+@startuml
+abstract class domain.Gebruiker
+annotation jakarta.persistence.Column
+annotation jakarta.persistence.Convert
+annotation jakarta.persistence.Embeddable
+annotation jakarta.persistence.Embedded
+annotation jakarta.persistence.Entity
+annotation jakarta.persistence.GeneratedValue
+annotation jakarta.persistence.Id
+annotation jakarta.persistence.Inheritance
+annotation jakarta.persistence.JoinColumn
+annotation jakarta.persistence.ManyToOne
+annotation jakarta.persistence.NamedQueries
+annotation jakarta.persistence.NamedQuery
+annotation jakarta.persistence.OneToMany
+annotation jakarta.persistence.OneToOne
+annotation jakarta.persistence.Table
+annotation jakarta.persistence.Transient
+annotation java.lang.Override
+class domain.Administrator
+class domain.Adres
+class domain.B2BBedrijf
+class domain.B2BBestelling
+class domain.B2BPortaal
+class domain.BetalingsHerinnering
+class domain.GebruikerFactory
+class domain.Klant
+class domain.Leverancier
+class domain.Product
+class domain.ProductInBestelling
+class domain.SMTPAuthenticator
+class dto.AdresDTO
+class dto.B2BBedrijfDTO
+class dto.BestellingFilterDTO
+class dto.GebruikerDTO
+class dto.KlantDTO
+class exceptions.RegistreerGebruikerException
+class jakarta.persistence.CascadeType
+class jakarta.persistence.DiscriminatorColumn
+class jakarta.persistence.EmbeddedId
+class jakarta.persistence.EntityManager
+class jakarta.persistence.GenerationType
+class jakarta.persistence.InheritanceType
+class java.math.BigDecimal
+class java.time.LocalDateTime
+class java.util.ArrayDeque
+class java.util.ArrayList
+class java.util.Collections
+class java.util.Date
+class java.util.Deque
+class java.util.List
+class java.util.Properties
+class java.util.regex.Matcher
+class java.util.regex.Pattern
+class java.util.stream.Collectors
+class javafx.beans.property.SimpleBooleanProperty
+class javafx.beans.property.SimpleIntegerProperty
+class javafx.beans.property.SimpleObjectProperty
+class javafx.beans.property.SimpleStringProperty
+class javafx.collections.ObservableList
+class javax.mail.Authenticator
+class javax.mail.Message
+class javax.mail.PasswordAuthentication
+class javax.mail.Session
+class javax.mail.Transport
+class javax.mail.internet.InternetAddress
+class javax.mail.internet.MimeMessage
+class repository.BedrijfDao
+class repository.BedrijfDaoJpa
+class repository.BestellingDao
+class repository.BestellingDaoJpa
+class repository.GebruikerDao
+class utils.BedrijfSectorEnum
+class utils.BedrijfSectorEnumConverter
+class utils.BestellingStatusEnum
+class utils.BestellingStatusEnumConverter
+class utils.BigDecimalConverter
+class utils.CustomAttributeConverter
+class utils.GebruikerRolEnum
+class utils.JPAUtil
+class utils.LocalDateTimeConverter
+class utils.SimpleBooleanPropertyConverter
+class utils.SimpleIntegerPropertyConverter
+class utils.SimpleStringPropertyConverter
+interface domain.AdresInterface
+interface domain.Bedrijf
+interface domain.Bestelling
+interface domain.Filterable
+interface domain.ProductInBestellingInterface
+interface domain.Searchable
+interface java.io.Serializable
+domain.Gebruiker ..> jakarta.persistence.Column
+domain.Gebruiker ..> jakarta.persistence.Entity
+domain.Gebruiker ..> jakarta.persistence.GeneratedValue
+domain.Gebruiker ..> jakarta.persistence.Id
+domain.Gebruiker ..> jakarta.persistence.Inheritance
+domain.Gebruiker ..> jakarta.persistence.Table
+domain.Gebruiker ..> dto.GebruikerDTO
+domain.Gebruiker ..> exceptions.RegistreerGebruikerException
+domain.Gebruiker ..> jakarta.persistence.DiscriminatorColumn
+domain.Gebruiker ..> jakarta.persistence.GenerationType
+domain.Gebruiker ..> jakarta.persistence.InheritanceType
+domain.Gebruiker ..> java.util.ArrayDeque
+domain.Gebruiker ..> java.util.Deque
+domain.Gebruiker ..> java.util.regex.Matcher
+domain.Gebruiker ..> java.util.regex.Pattern
+domain.Gebruiker ..> java.util.stream.Collectors
+domain.Gebruiker ..> utils.GebruikerRolEnum
+domain.Gebruiker --|> java.io.Serializable
+domain.Administrator --|> domain.Gebruiker
+domain.Administrator ..> jakarta.persistence.Entity
+domain.Administrator ..> jakarta.persistence.NamedQueries
+domain.Administrator ..> jakarta.persistence.NamedQuery
+domain.Administrator ..> dto.GebruikerDTO
+domain.Administrator ..> exceptions.RegistreerGebruikerException
+domain.Adres ..> jakarta.persistence.Convert
+domain.Adres ..> jakarta.persistence.Embeddable
+domain.Adres ..> jakarta.persistence.Transient
+domain.Adres ..> java.lang.Override
+domain.Adres ..> dto.AdresDTO
+domain.Adres ..> javafx.beans.property.SimpleIntegerProperty
+domain.Adres ..> javafx.beans.property.SimpleStringProperty
+domain.Adres ..> utils.SimpleIntegerPropertyConverter
+domain.Adres ..> utils.SimpleStringPropertyConverter
+domain.Adres --|> domain.AdresInterface
+domain.B2BBedrijf ..> jakarta.persistence.Convert
+domain.B2BBedrijf ..> jakarta.persistence.Embedded
+domain.B2BBedrijf ..> jakarta.persistence.Entity
+domain.B2BBedrijf ..> jakarta.persistence.GeneratedValue
+domain.B2BBedrijf ..> jakarta.persistence.Id
+domain.B2BBedrijf ..> jakarta.persistence.NamedQueries
+domain.B2BBedrijf ..> jakarta.persistence.NamedQuery
+domain.B2BBedrijf ..> jakarta.persistence.OneToOne
+domain.B2BBedrijf ..> jakarta.persistence.Table
+domain.B2BBedrijf ..> jakarta.persistence.Transient
+domain.B2BBedrijf ..> java.lang.Override
+domain.B2BBedrijf ..> dto.B2BBedrijfDTO
+domain.B2BBedrijf ..> dto.GebruikerDTO
+domain.B2BBedrijf ..> dto.KlantDTO
+domain.B2BBedrijf ..> jakarta.persistence.GenerationType
+domain.B2BBedrijf ..> java.util.Collections
+domain.B2BBedrijf ..> java.util.List
+domain.B2BBedrijf ..> javafx.beans.property.SimpleBooleanProperty
+domain.B2BBedrijf ..> javafx.beans.property.SimpleIntegerProperty
+domain.B2BBedrijf ..> javafx.beans.property.SimpleObjectProperty
+domain.B2BBedrijf ..> javafx.beans.property.SimpleStringProperty
+domain.B2BBedrijf ..> repository.BestellingDao
+domain.B2BBedrijf ..> repository.BestellingDaoJpa
+domain.B2BBedrijf ..> repository.GebruikerDao
+domain.B2BBedrijf ..> utils.BedrijfSectorEnum
+domain.B2BBedrijf ..> utils.BedrijfSectorEnumConverter
+domain.B2BBedrijf ..> utils.BestellingStatusEnum
+domain.B2BBedrijf ..> utils.CustomAttributeConverter
+domain.B2BBedrijf ..> utils.SimpleBooleanPropertyConverter
+domain.B2BBedrijf ..> utils.SimpleStringPropertyConverter
+domain.B2BBedrijf --|> domain.Bedrijf
+domain.B2BBedrijf --|> java.io.Serializable
+domain.B2BBestelling ..> jakarta.persistence.Convert
+domain.B2BBestelling ..> jakarta.persistence.Entity
+domain.B2BBestelling ..> jakarta.persistence.GeneratedValue
+domain.B2BBestelling ..> jakarta.persistence.Id
+domain.B2BBestelling ..> jakarta.persistence.JoinColumn
+domain.B2BBestelling ..> jakarta.persistence.ManyToOne
+domain.B2BBestelling ..> jakarta.persistence.NamedQueries
+domain.B2BBestelling ..> jakarta.persistence.NamedQuery
+domain.B2BBestelling ..> jakarta.persistence.OneToMany
+domain.B2BBestelling ..> jakarta.persistence.Table
+domain.B2BBestelling ..> jakarta.persistence.Transient
+domain.B2BBestelling ..> java.lang.Override
+domain.B2BBestelling ..> dto.BestellingFilterDTO
+domain.B2BBestelling ..> jakarta.persistence.CascadeType
+domain.B2BBestelling ..> jakarta.persistence.GenerationType
+domain.B2BBestelling ..> java.math.BigDecimal
+domain.B2BBestelling ..> java.time.LocalDateTime
+domain.B2BBestelling ..> java.util.ArrayDeque
+domain.B2BBestelling ..> java.util.Collections
+domain.B2BBestelling ..> java.util.Date
+domain.B2BBestelling ..> java.util.Deque
+domain.B2BBestelling ..> java.util.List
+domain.B2BBestelling ..> javafx.beans.property.SimpleBooleanProperty
+domain.B2BBestelling ..> javafx.beans.property.SimpleIntegerProperty
+domain.B2BBestelling ..> javafx.beans.property.SimpleObjectProperty
+domain.B2BBestelling ..> javafx.beans.property.SimpleStringProperty
+domain.B2BBestelling ..> repository.BestellingDao
+domain.B2BBestelling ..> repository.BestellingDaoJpa
+domain.B2BBestelling ..> utils.BestellingStatusEnum
+domain.B2BBestelling ..> utils.BestellingStatusEnumConverter
+domain.B2BBestelling ..> utils.BigDecimalConverter
+domain.B2BBestelling ..> utils.LocalDateTimeConverter
+domain.B2BBestelling ..> utils.SimpleBooleanPropertyConverter
+domain.B2BBestelling --|> domain.Bestelling
+domain.B2BBestelling --|> java.io.Serializable
+domain.B2BPortaal ..> jakarta.persistence.EntityManager
+domain.B2BPortaal ..> java.util.Collections
+domain.B2BPortaal ..> java.util.List
+domain.B2BPortaal ..> repository.BedrijfDao
+domain.B2BPortaal ..> repository.BedrijfDaoJpa
+domain.B2BPortaal ..> repository.GebruikerDao
+domain.B2BPortaal ..> utils.JPAUtil
+domain.BetalingsHerinnering ..> java.math.BigDecimal
+domain.BetalingsHerinnering ..> java.time.LocalDateTime
+domain.BetalingsHerinnering ..> java.util.Properties
+domain.BetalingsHerinnering ..> javax.mail.Authenticator
+domain.BetalingsHerinnering ..> javax.mail.Message
+domain.BetalingsHerinnering ..> javax.mail.Session
+domain.BetalingsHerinnering ..> javax.mail.Transport
+domain.BetalingsHerinnering ..> javax.mail.internet.InternetAddress
+domain.BetalingsHerinnering ..> javax.mail.internet.MimeMessage
+domain.BetalingsHerinnering ..> utils.BestellingStatusEnum
+domain.GebruikerFactory ..> dto.GebruikerDTO
+domain.GebruikerFactory ..> exceptions.RegistreerGebruikerException
+domain.GebruikerFactory ..> utils.GebruikerRolEnum
+domain.Klant --|> domain.Gebruiker
+domain.Klant ..> jakarta.persistence.Entity
+domain.Klant ..> jakarta.persistence.JoinColumn
+domain.Klant ..> jakarta.persistence.ManyToOne
+domain.Klant ..> jakarta.persistence.OneToOne
+domain.Klant ..> jakarta.persistence.Table
+domain.Klant ..> dto.B2BBedrijfDTO
+domain.Klant ..> dto.GebruikerDTO
+domain.Klant ..> exceptions.RegistreerGebruikerException
+domain.Klant ..> java.util.List
+domain.Klant ..> javafx.beans.property.SimpleStringProperty
+domain.Leverancier --|> domain.Gebruiker
+domain.Leverancier ..> jakarta.persistence.Entity
+domain.Leverancier ..> jakarta.persistence.GeneratedValue
+domain.Leverancier ..> jakarta.persistence.Id
+domain.Leverancier ..> jakarta.persistence.JoinColumn
+domain.Leverancier ..> jakarta.persistence.OneToMany
+domain.Leverancier ..> jakarta.persistence.OneToOne
+domain.Leverancier ..> jakarta.persistence.Transient
+domain.Leverancier ..> dto.GebruikerDTO
+domain.Leverancier ..> exceptions.RegistreerGebruikerException
+domain.Leverancier ..> jakarta.persistence.CascadeType
+domain.Leverancier ..> jakarta.persistence.GenerationType
+domain.Leverancier ..> java.util.ArrayList
+domain.Leverancier ..> java.util.Collections
+domain.Leverancier ..> java.util.List
+domain.Leverancier ..> javafx.collections.ObservableList
+domain.Leverancier ..> repository.BedrijfDao
+domain.Leverancier ..> repository.BedrijfDaoJpa
+domain.Leverancier ..> repository.BestellingDao
+domain.Leverancier ..> repository.BestellingDaoJpa
+domain.Leverancier ..> utils.BestellingStatusEnum
+domain.Leverancier --|> java.io.Serializable
+domain.Product ..> jakarta.persistence.Entity
+domain.Product ..> jakarta.persistence.Id
+domain.Product ..> jakarta.persistence.NamedQueries
+domain.Product ..> jakarta.persistence.NamedQuery
+domain.Product ..> java.math.BigDecimal
+domain.ProductInBestelling ..> jakarta.persistence.Embedded
+domain.ProductInBestelling ..> jakarta.persistence.Entity
+domain.ProductInBestelling ..> jakarta.persistence.GeneratedValue
+domain.ProductInBestelling ..> jakarta.persistence.Id
+domain.ProductInBestelling ..> jakarta.persistence.JoinColumn
+domain.ProductInBestelling ..> jakarta.persistence.ManyToOne
+domain.ProductInBestelling ..> jakarta.persistence.EmbeddedId
+domain.ProductInBestelling ..> jakarta.persistence.GenerationType
+domain.ProductInBestelling ..> java.math.BigDecimal
+domain.ProductInBestelling --|> domain.ProductInBestellingInterface
+domain.SMTPAuthenticator --|> javax.mail.Authenticator
+domain.SMTPAuthenticator ..> javax.mail.PasswordAuthentication
+domain.AdresInterface ..> dto.AdresDTO
+domain.AdresInterface ..> javafx.beans.property.SimpleIntegerProperty
+domain.AdresInterface ..> javafx.beans.property.SimpleStringProperty
+domain.AdresInterface --|> domain.Filterable
+domain.AdresInterface --|> domain.Searchable
+domain.Bedrijf ..> dto.B2BBedrijfDTO
+domain.Bedrijf ..> java.util.List
+domain.Bedrijf ..> javafx.beans.property.SimpleBooleanProperty
+domain.Bedrijf ..> javafx.beans.property.SimpleIntegerProperty
+domain.Bedrijf ..> javafx.beans.property.SimpleObjectProperty
+domain.Bedrijf ..> javafx.beans.property.SimpleStringProperty
+domain.Bedrijf ..> utils.BedrijfSectorEnum
+domain.Bedrijf --|> domain.Filterable
+domain.Bedrijf --|> domain.Searchable
+domain.Bestelling ..> dto.BestellingFilterDTO
+domain.Bestelling ..> java.math.BigDecimal
+domain.Bestelling ..> java.time.LocalDateTime
+domain.Bestelling ..> java.util.Date
+domain.Bestelling ..> java.util.List
+domain.Bestelling ..> javafx.beans.property.SimpleBooleanProperty
+domain.Bestelling ..> javafx.beans.property.SimpleIntegerProperty
+domain.Bestelling ..> javafx.beans.property.SimpleObjectProperty
+domain.Bestelling ..> javafx.beans.property.SimpleStringProperty
+domain.Bestelling ..> utils.BestellingStatusEnum
+domain.Bestelling --|> domain.Filterable
+domain.Bestelling --|> domain.Searchable
+domain.ProductInBestellingInterface ..> java.math.BigDecimal
+@enduml
