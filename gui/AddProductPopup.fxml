@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" fillWidth="false" prefHeight="232.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddProductPopupController">
+   <Label text="Nieuw product:">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+
+    <Label text="Naam:" />
+    <TextField fx:id="nameInput" />
+
+    <Label text="Eenheidsprijs:" />
+    <TextField fx:id="priceInput" />
+
+    <Label text="Aantal In Stock:" />
+    <TextField fx:id="stockInput" />
+
+    <Button fx:id="btnBevestig" onAction="#handleBevestig" text="Bevestig" />
+</VBox>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+
+
+<fx:root alignment="TOP_RIGHT" prefWidth="179.0" type="VBox" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+	<!-- TODO Add Nodes -->
+</fx:root>

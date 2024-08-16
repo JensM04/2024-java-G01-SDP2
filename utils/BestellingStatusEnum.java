@@ -1,0 +1,5 @@
+package utils;
+
+public enum BestellingStatusEnum {
+	GEPLAATST, ONTVANGEN, VERWERKT, VERZONDEN, UIT_VOOR_LEVERING, GELEVERD, VOLTOOID;
+}

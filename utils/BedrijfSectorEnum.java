@@ -1,0 +1,5 @@
+package utils;
+
+public enum BedrijfSectorEnum {
+	SOCIALMEDIA, IT, AUTOMOTIVE, FINANCE, HEALTH, TRANSPORTATION, EDUCATION, ENERGY, FOOD;
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<fx:root fx:id="borderPane" prefHeight="980.0" prefWidth="1820.0" style="-fx-background-color: #FFFFFF;" type="BorderPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="980.0" prefWidth="396.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="38.0" layoutY="87.0" prefHeight="360.0" prefWidth="254.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="82.0">
+               <children>
+                  <Button fx:id="bestellingButton" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#toonBestellingen" prefHeight="30.0" prefWidth="220.0" style="-fx-background-color: E19693;" text="Bestellingen" textAlignment="CENTER" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="70.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="klantenButton" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#toonKlanten" prefHeight="30.0" prefWidth="220.0" style="-fx-background-color: E19693;" text="Klanten" textAlignment="CENTER" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="70.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnClose" mnemonicParsing="false" onMouseClicked="#onClose" text="Close" />
+                  <Label fx:id="gebruikersnaamLabel" text="Label">
+                     <VBox.margin>
+                        <Insets top="750.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <graphic>
+                        <Button fx:id="btnUitloggen" mnemonicParsing="false" text="Uitloggen" />
+                     </graphic>
+                  </Label>
+               </children>
+            </VBox>
+            <ImageView fx:id="logoDelaware" fitHeight="64.0" fitWidth="192.0" layoutX="79.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="86.0" AnchorPane.topAnchor="7.5">
+               <image>
+                  <Image url="@../../assets/logoDelaware.png" />
+               </image></ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <SplitPane fx:id="mainSplit" dividerPositions="0.5" prefHeight="980.0" prefWidth="1425.0" BorderPane.alignment="CENTER">
+         <items>
+            <VBox fx:id="appWindow" prefHeight="980.0" />
+            <VBox fx:id="sideWindow" layoutX="10.0" layoutY="10.0" prefHeight="978.0" prefWidth="706.0" />
+         </items>
+      </SplitPane>
+   </center>
+</fx:root>

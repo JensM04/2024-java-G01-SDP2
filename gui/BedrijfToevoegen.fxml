@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root spacing="10.0" type="VBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TitledPane animated="false" collapsible="false" text="Bedrijfsgegevens">
+         <content>
+            <GridPane hgap="10.0" prefHeight="100.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints valignment="TOP" />
+                  <RowConstraints valignment="TOP" />
+                <RowConstraints valignment="TOP" />
+                  <RowConstraints valignment="TOP" />
+                <RowConstraints valignment="TOP" />
+                  <RowConstraints valignment="TOP" />
+                  <RowConstraints valignment="TOP" />
+              </rowConstraints>
+               <children>
+                  <Label text="Bedrijfsaam" />
+                  <VBox prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <TextField fx:id="txtfldBedrijfsnaam" promptText="naam" />
+                        <Label fx:id="lblErrorNaam" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <Label text="Email" GridPane.rowIndex="1" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <TextField fx:id="txtfldEmail" promptText="email" />
+                        <Label fx:id="lblErrorEmail" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <Label text="Telefoonnummer" GridPane.rowIndex="2" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <TextField fx:id="txtfldTelefoonnummer" promptText="telefoonnummer" />
+                        <Label fx:id="lblErrorTelefoonnummer" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <Label text="WebsiteURL" GridPane.rowIndex="3" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <TextField fx:id="txtfldUrl" promptText="url" />
+                        <Label fx:id="lblErrorUrl" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <Label text="Sector" GridPane.rowIndex="5" />
+                  <VBox spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <ComboBox fx:id="comboSector" prefWidth="150.0" promptText="sector" />
+                        <Label fx:id="lblErrorSector" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <Label text="Btw nummer" GridPane.rowIndex="4" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <TextField fx:id="Btwnr_input" promptText="BTW nummer" />
+                        <Label />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" collapsible="false" text="Adresgegevens">
+         <content>
+            <GridPane hgap="10.0" prefHeight="100.0" vgap="10.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints valignment="TOP" />
+                  <RowConstraints valignment="TOP" />
+                  <RowConstraints valignment="TOP" />
+                  <RowConstraints valignment="TOP" />
+                  <RowConstraints valignment="TOP" />
+               </rowConstraints>
+               <children>
+                  <Label text="Straat" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <TextField fx:id="txtfldStraat" promptText="straat" />
+                        <Label fx:id="lblErrorStraat" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <Label text="Huisnummer" GridPane.rowIndex="1" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <TextField fx:id="txtfldHuisnummer" promptText="huisnummer" />
+                        <Label fx:id="lblErrorHuisnummer" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <Label text="Bus" GridPane.rowIndex="2" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <TextField fx:id="txtfldBus" promptText="bus" />
+                        <Label fx:id="lblErrorBus" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <Label text="Postcode" GridPane.rowIndex="3" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <TextField fx:id="txtfldPostcode" promptText="postcode" />
+                        <Label fx:id="lblErrorPostcode" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <Label text="Gemeente" GridPane.rowIndex="4" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <TextField fx:id="txtfldGemeente" promptText="gemeente" />
+                        <Label fx:id="lblErrorGemeente" textFill="RED" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </content>
+      </TitledPane>
+      <Button fx:id="btnVoegToe" mnemonicParsing="false" onAction="#onBtnVoegToe" text="Voeg Toe" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</fx:root>

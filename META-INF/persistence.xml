@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+    version="3.0">
+
+    <persistence-unit name="SDPII"
+        transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>domain.Product</class>
+        <class>domain.B2BBedrijf</class>
+        <class>domain.Gebruiker</class>
+        <class>domain.Administrator</class>
+        <class>domain.Leverancier</class>
+        <class>domain.ProductInBestelling</class>
+        <class>domain.B2BBestelling</class>
+        <class>domain.Klant</class>
+        <class>domain.Betaling</class>
+        <class>utils.UUIDValueConverter</class>
+        <class>utils.StringPropertyConverter</class>
+        <class>utils.IntegerPropertyConverter</class>
+        <class>utils.BooleanPropertyConverter</class>
+        <class>utils.LocalDateTimeConverter</class>
+        <class>utils.BigDecimalConverter</class>
+        <class>utils.BestellingStatusEnumConverter</class>
+        <class>utils.BedrijfSectorEnumConverter</class>
+        <class>utils.GebruikerRolEnumConverter</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.url"
+                value="jdbc:mysql://localhost:3306/sdp2_db" />
+            <property name="jakarta.persistence.jdbc.user" value="root" />
+            <property name="jakarta.persistence.jdbc.driver"
+                value="com.mysql.cj.jdbc.Driver" />
+            <property name="jakarta.persistence.jdbc.password"
+                value="root" />
+            <property
+                name="jakarta.persistence.schema-generation.database.action"
+                value="root" />
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
